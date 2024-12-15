@@ -1,9 +1,10 @@
 name: "Build"
 on:
   push:
-    branches:
-      - main
-  pull_request:
+    # Pattern matched against refs/tags
+    tags:
+      - '*'           # Push events to every tag not containing /
+
 
 jobs:
   build:
