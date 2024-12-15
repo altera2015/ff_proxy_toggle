@@ -6,21 +6,32 @@
       body {
         font-family: Arial, sans-serif;
         text-align: left;
+        padding: 20px;
       }
     </style>
   </head>
   <body>
-    <h1>Missing Permission</h1>
+    <img src="icon.png" align="right"><h1>Missing Permission</h1>
     <p>
-        To toggle the proxy information this plugin needs
-        access to Private Browsing. See <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/proxy/settings">
-            Mozilla Documentation on document.proxy</a>
-        This extension does not access any information besides the
-        proxy settings.
-        </a>
+        To toggle the proxy settings this extension needs
+        access to Private Browsing.
     </p>
-    <p>To allow this access right click on the icon and select "Manager". Then
+    <p style="font-weight: bold">
+        To allow this access right click on the icon and select "Manage". Then
         click "Allow" next to "Run in Private Windows".
     </p>
+
+    <h1>Why</h1>
+    <p>
+        The extension needs this access due to a Browser policy, see <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/proxy/settings">Mozilla Documentation on document.proxy</a>
+    </p>
+
+    <h1>Privacy</h1>
+    <p>
+    This extension does not access any information besides the
+    proxy settings. Since it is open source you can review the code
+    <a href="https://github.com/altera2015/ff_proxy_toggle">here</a>
+    </p>
+
   </body>
 </html>

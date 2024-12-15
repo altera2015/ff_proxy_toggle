@@ -1,17 +1,29 @@
+// ff-proxy-toggle
+//
+// An Opensource Proxy Toggle that does not muck with your data.
+// BSD-3 clause. See LICENSE
+
+// Update the UI to display the correct icon and
+// tooltip.
+// 'true' means proxy is enabled
+// 'false' means proxy is not enabled.
 let updateUI = function(enabled) {
   if (enabled) {
-    browser.browserAction.setIcon({
+    browser.action.setIcon({
       path: "icon.png"
     });
-    browser.browserAction.setTitle({title: "Disable Manual Proxy"});
+    browser.action.setTitle({title: "Disable Manual Proxy"});
   } else {
-    browser.browserAction.setIcon({
+    browser.action.setIcon({
       path: "icon-disabled.png"
     });
-    browser.browserAction.setTitle({title: "Enable Manual Proxy"});
+    browser.action.setTitle({title: "Enable Manual Proxy"});
   }
 }
 
+// Check if the extension has incognition permission
+// if not display a warning. If it does have the
+// permission calls the callback.
 let runCallbackIfIncognitoPermissionGrantedWarnOtherwise = function(callback) {
   let isAllowedPromise = browser.extension.isAllowedIncognitoAccess();
   isAllowedPromise.then((isAllowed) => {
@@ -19,7 +31,7 @@ let runCallbackIfIncognitoPermissionGrantedWarnOtherwise = function(callback) {
       browser.windows.create({
         url: "warning.html",
         type: "popup",
-        width: 400,
+        width: 500,
         height: 400
       });
     } else {
@@ -29,6 +41,7 @@ let runCallbackIfIncognitoPermissionGrantedWarnOtherwise = function(callback) {
   return false;
 }
 
+// Toggle the proxy state.
 let toggleProxy = function() {
   browser.proxy.settings.get({}, (proxySettings) => {
     if (proxySettings.value.proxyType == "manual") {
@@ -45,6 +58,7 @@ let toggleProxy = function() {
   });
 }
 
+// Load the state on plugin startup.
 browser.proxy.settings.get({}, (proxySettings) => {
   if (proxySettings.value.proxyType == "none") {
     updateUI(false);
@@ -53,7 +67,8 @@ browser.proxy.settings.get({}, (proxySettings) => {
   }
 });
 
-browser.browserAction.onClicked.addListener(() => {
+// Respond to button clicks on the icon
+browser.action.onClicked.addListener(() => {
     runCallbackIfIncognitoPermissionGrantedWarnOtherwise( () => {
       toggleProxy();
     });
