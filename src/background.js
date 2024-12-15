@@ -32,7 +32,7 @@ let runCallbackIfIncognitoPermissionGrantedWarnOtherwise = function(callback) {
         url: "warning.html",
         type: "popup",
         width: 500,
-        height: 400
+        height: 600
       });
     } else {
       callback();

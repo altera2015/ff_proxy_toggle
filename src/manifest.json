@@ -1,17 +1,23 @@
 {
-    "manifest_version": 3,
-    "name": "Proxy Toggle",
-    "version": "1.0",
-    "description": "Toggle proxy setting with a toolbar button",
-    "permissions": ["proxy"],
-    "icons": {
-      "32": "icon.png"
-    },
-    "action": {
-      "default_icon": "icon.png",
-      "default_title": "Proxy Toggle"
-    },
-    "background": {
-        "scripts": ["background.js"]
+  "manifest_version": 3,
+  "name": "Proxy Toggle",
+  "version": "1.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ff_proxy_toggle@bessems.biz",
+      "strict_min_version": "109.0"
     }
+  },
+  "description": "Toggle proxy setting with a toolbar button",
+  "permissions": ["proxy"],
+  "icons": {
+    "32": "icon.png"
+  },
+  "action": {
+    "default_icon": "icon.png",
+    "default_title": "Proxy Toggle"
+  },
+  "background": {
+      "scripts": ["background.js"]
   }
+}
