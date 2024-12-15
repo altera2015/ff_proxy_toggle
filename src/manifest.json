@@ -1,14 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "Proxy Toggle",
-  "version": "1.0",
+  "name": "FF Proxy Toggle",
+  "version": "1.0.1",
   "browser_specific_settings": {
     "gecko": {
       "id": "ff_proxy_toggle@bessems.biz",
       "strict_min_version": "109.0"
     }
   },
-  "description": "Toggle proxy setting with a toolbar button",
+  "description": "Toggle proxy settings between manual and socks with a toolbar button",
   "permissions": ["proxy"],
   "icons": {
     "32": "icon.png"

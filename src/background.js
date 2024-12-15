@@ -59,13 +59,20 @@ let toggleProxy = function() {
 }
 
 // Load the state on plugin startup.
-browser.proxy.settings.get({}, (proxySettings) => {
-  if (proxySettings.value.proxyType == "none") {
-    updateUI(false);
-  } else {
-    updateUI(true);
-  }
-});
+let startup = function() {
+  browser.proxy.settings.get({}, (proxySettings) => {
+    console.log("FF Proxy Startup Settings: ", proxySettings.value.proxyType);
+    if (proxySettings.value.proxyType == "none") {
+      updateUI(false);
+    } else {
+      updateUI(true);
+    }
+  });
+}
+
+setTimeout(() => {
+  startup();
+}, 100);
 
 // Respond to button clicks on the icon
 browser.action.onClicked.addListener(() => {
