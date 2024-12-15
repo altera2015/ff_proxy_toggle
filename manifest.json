@@ -1,0 +1,15 @@
+{
+    "manifest_version": 2,
+    "name": "Proxy Toggle",
+    "version": "1.0",
+    "description": "Toggle proxy setting with a toolbar button",
+    "permissions": ["proxy"],
+    "browser_action": {
+      "default_icon": "icon.png",
+      "default_title": "Proxy Toggle"
+    },
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    }
+  }
